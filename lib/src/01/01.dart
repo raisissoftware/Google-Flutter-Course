@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage>{
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                  pressed ? pressedExchangeValue + ' EUR is ' + exchangedValueToRON.toString() + ' RON' : '',
+                  pressed ? pressedExchangeValue + ' EUR is ' + exchangedValueToRON.toStringAsFixed(2) + ' RON' : '',
                   style: const TextStyle(
                     color: Colors.red,
                     fontSize: 20.00,
