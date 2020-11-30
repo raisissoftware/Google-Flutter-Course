@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
 
               // Respond to button press
             },
-            child: const Icon(Icons.add),
+            child: const Icon(Icons.check),
           )
         ],
       ),
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
 
   bool isTriangular(int x) {
     if (x < 0) return false;
-    return isSquare(8 * x + 1);
+    return ((sqrt(8 * x + 1) - 1) / 2) % 1 == 0;
   }
 
   String checkNumber(int insertedNumber) {
