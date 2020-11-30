@@ -29,12 +29,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String error = '';
+  String message = '';
   String writtenNumber = '';
   int insertedNumber = 0;
   Random rnd = Random();
   int guessNumber = 0;
   bool reset = true;
   bool pressed = false;
+  bool gameOver = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,21 +59,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              pressed
-                  ? reset
-                      ? newGuess()
-                          ? 'We have a new number to be guessed'
-                          : ' '
-                      : insertedNumber == guessNumber
-                          ? guessed()
-                          : insertedNumber < guessNumber
-                              ? 'You tried ' +
-                                  insertedNumber.toString() +
-                                  ' Try higher'
-                              : 'You tried ' +
-                                  insertedNumber.toString() +
-                                  ' Try lower'
-                  : '',
+              message,
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 20.00,
@@ -110,24 +98,25 @@ class _HomePageState extends State<HomePage> {
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
                     RaisedButton(
-                      child: reset ? const Text('Reset') : const Text('Guess'),
+                      child: reset ? const Text ('Reset') : const Text('Guess'),
                       onPressed: () {
                         if (reset) {
-                          newGuess();
+                          setState(() {
+                            newGuess();
+                          });
+                        } else if (writtenNumber.isEmpty) {
+                          setState(() {
+                            error = 'Please insert a number';
+                          });
+                        } else if (int.tryParse(writtenNumber) == null) {
+                          error = 'It must be a number!';
                         } else {
-                          if (writtenNumber.isEmpty) {
-                            setState(() {
-                              error = 'Please insert a number';
-                            });
-                          } else if (int.tryParse(writtenNumber) == null) {
-                            error = 'It must be a number!';
-                          } else {
-                            setState(() {
-                              error = null;
-                              insertedNumber = int.parse(writtenNumber);
-                              pressed = true;
-                            });
-                          }
+                          setState(() {
+                            error = null;
+                            insertedNumber = int.parse(writtenNumber);
+                            pressed = true;
+                          });
+                          checkGuessed();
                         }
                       },
                     ),
@@ -136,41 +125,58 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-
         ],
       ),
     );
   }
 
-  bool newGuess() {
+  void newGuess() {
     guessNumber = rnd.nextInt(100) + 1;
+    message = 'The number is ready';
     reset = false;
-
-    return true;
   }
 
   Future<void> _showDialogForGuessed() async {
     return showDialog<void>(
-        context: context,
-        barrierDismissible: true,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('You guessed right'),
-            content: Text('It was ' + guessNumber.toString()),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('Try again'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('You guessed right'),
+          content: Text('It was ' + guessNumber.toString()),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Try again'),
+              onPressed: () {
+                setState(() {
+                  newGuess();
+                });
+
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
-  String guessed() {
-    _showDialogForGuessed();
-    return ' You have guessed';
+  void checkGuessed() {
+    if (insertedNumber == guessNumber) {
+      message = 'Guessed';
+      reset = true;
+      _showDialogForGuessed();
+    } else {
+      if (insertedNumber < guessNumber) {
+        message = 'You tried ' + insertedNumber.toString() + ' Try higher';
+      } else
+        message = 'You tried ' + insertedNumber.toString() + ' Try lower';
+    }
   }
 }
