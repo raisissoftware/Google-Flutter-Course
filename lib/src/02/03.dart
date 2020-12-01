@@ -122,13 +122,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool isTriangular(int x) {
-    if (x < 0) return false;
+    if (x < 0) {
+      return false;
+    }
     return ((sqrt(8 * x + 1) - 1) / 2) % 1 == 0;
   }
 
   String checkNumber(int insertedNumber) {
     int answer = 3;
-    final Map<int, String> r = {
+    final Map<int, String> r = <int, String>{
       1: 'is SQUARE',
       2: 'is both SQUARE and TRIANGULAR.',
       3: 'is neither TRIANGULAR or SQUARE',

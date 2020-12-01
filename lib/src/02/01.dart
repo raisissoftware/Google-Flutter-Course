@@ -13,7 +13,7 @@ import 'package:http/http.dart';
 Future<void> main() async {
   final Response response = await get('https://yts.mx/api/v2/list_movies.json');
 
-  Map<String, dynamic> map = jsonDecode(response.body);
+  final Map<String, dynamic> map = jsonDecode(response.body);
 
-  print(map["data"]["movies"][0]["title"]);
+  print(map['data']['movies'][0]['title']);
 }
