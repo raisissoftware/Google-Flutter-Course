@@ -66,8 +66,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           TextField(
-            keyboardType: const TextInputType.numberWithOptions(
-                signed: true, decimal: true),
+            keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
             decoration: InputDecoration(
               hintText: 'Insert a number',
               errorText: error,
@@ -111,11 +110,9 @@ class _HomePageState extends State<HomePage> {
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
-        return SimpleDialog(
-            title: Text('Number ' + insertedNumber.toString()),
-            children: <Widget>[
-              Text('Number' + insertedNumber.toString() + ' ' + message),
-            ]);
+        return SimpleDialog(title: Text('Number ' + insertedNumber.toString()), children: <Widget>[
+          Text('Number' + insertedNumber.toString() + ' ' + message),
+        ]);
       },
     );
   }

@@ -81,8 +81,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: TextField(
-                    keyboardType: const TextInputType.numberWithOptions(
-                        signed: true, decimal: true),
+                    keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
                     decoration: InputDecoration(
                       hintText: 'Insert a number',
                       errorText: error,

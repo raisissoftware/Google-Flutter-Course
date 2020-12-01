@@ -56,8 +56,7 @@ class _HomePageState extends State<HomePage> {
             height: 200.0,
           ),
           TextField(
-            keyboardType: const TextInputType.numberWithOptions(
-                signed: true, decimal: true),
+            keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
             decoration: InputDecoration(
               hintText: 'Insert a number',
               errorText: error,
@@ -81,8 +80,7 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   error = null;
                   pressedExchangeValue = exchangeValue;
-                  exchangedValueToRON =
-                      double.parse(exchangeValue) * exchangeRate;
+                  exchangedValueToRON = double.parse(exchangeValue) * exchangeRate;
                   pressed = true;
                 });
               }
@@ -91,12 +89,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              pressed
-                  ? pressedExchangeValue +
-                      ' EUR is ' +
-                      exchangedValueToRON.toStringAsFixed(2) +
-                      ' RON'
-                  : '',
+              pressed ? pressedExchangeValue + ' EUR is ' + exchangedValueToRON.toStringAsFixed(2) + ' RON' : '',
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 20.00,
