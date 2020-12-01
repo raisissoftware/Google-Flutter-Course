@@ -16,5 +16,4 @@ Future<void> main() async {
   Map<String, dynamic> map = jsonDecode(response.body);
 
   print(map["data"]["movies"][0]["title"]);
-  
 }

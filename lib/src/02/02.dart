@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
                     RaisedButton(
-                      child: reset ? const Text ('Reset') : const Text('Guess'),
+                      child: reset ? const Text('Reset') : const Text('Guess'),
                       onPressed: () {
                         if (reset) {
                           setState(() {
