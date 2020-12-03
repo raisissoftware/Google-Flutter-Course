@@ -1,4 +1,4 @@
-import 'src/03/01.dart' as app;
+import 'src/03/02.dart' as app;
 
 void main() {
   app.main();
