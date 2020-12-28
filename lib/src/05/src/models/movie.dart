@@ -12,7 +12,6 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
 
   factory Movie.fromJson(dynamic json) {
     return serializers.deserializeWith(serializer, json);
-    
   }
 
   Movie._();
