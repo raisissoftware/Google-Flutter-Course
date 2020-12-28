@@ -1,93 +1,44 @@
-import 'dart:convert';
 
-import 'package:COURSES/src/05/src/models/movie.dart';
+import 'package:COURSES/src/05/src/actions/get_movies.dart';
+import 'package:COURSES/src/05/src/data/yts_api.dart';
+import 'package:COURSES/src/05/src/middleware/app_middleware.dart';
+import 'package:COURSES/src/05/src/models/app_state.dart';
+import 'package:COURSES/src/05/src/presentation/home_page.dart';
+import 'package:COURSES/src/05/src/reducer/reducer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 import 'package:http/http.dart';
 
 void main() {
-  runApp(const MyApp());
+
+  final Client client = Client();
+  final YtsApi ytsApi = YtsApi(client: client);
+  final AppMiddleware middleware = AppMiddleware(ytsApi: ytsApi);
+  final AppState initialState = AppState.initialState();
+  final Store<AppState> store = Store<AppState>(
+    reducer,
+    initialState: initialState,
+    middleware: middleware.middleware,
+  );
+  store.dispatch(const GetMovies());
+
+  runApp(MyApp(store: store,));
+
+
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
-
+  const MyApp({Key key, @required this.store}) : super(key: key);
+  final Store<AppState> store;
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final List<Movie> _movies = <Movie>[];
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _getMovies();
-  }
-
-  Future<void> _getMovies() async {
-    setState(() {
-      _isLoading = true;
-    });
-    const String url = 'https://yts.mx/api/v2/list_movies.json?limit=50';
-
-    final Response response = await get(url);
-    final String body = response.body;
-
-    final List<dynamic> list = jsonDecode(body)['data']['movies'];
-
-    final List<Movie> movieList = list //
-        .map((dynamic json) => Movie.fromJson(json))
-        .toList();
-
-    setState(() {
-      _movies.addAll(movieList);
-      _isLoading = false;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Builder(builder: (BuildContext context) {
-        if(_isLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        return GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisSpacing: 4.0,
-            crossAxisSpacing: 4.0,
-            crossAxisCount: 3,
-          ),
-          itemCount: _movies.length,
-          itemBuilder: (BuildContext context, int index) {
-            final Movie movie = _movies[index];
-
-            return GridTile(
-              child: Image.network(movie.mediumCoverImage),
-              footer: GridTileBar(
-                title: Text(movie.title),
-                subtitle: Text(movie.genres.join(', ')),
-              ),
-            );
-          },
-        );
-      }),
+    return StoreProvider<AppState>(
+      store: store,
+      child: const MaterialApp(
+        home: HomePage(),
+      ),
     );
   }
 }
