@@ -29,7 +29,8 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       serializers.serialize(object.runtime, specifiedType: const FullType(int)),
       'genres',
       serializers.serialize(object.genres,
-          specifiedType: const FullType(List, const [const FullType(String)])),
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
       'summary',
       serializers.serialize(object.summary,
           specifiedType: const FullType(String)),
@@ -75,10 +76,10 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
               specifiedType: const FullType(int)) as int;
           break;
         case 'genres':
-          result.genres = serializers.deserialize(value,
+          result.genres.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(String)]))
-              as List<String>;
+                      const FullType(BuiltList, const [const FullType(String)]))
+              as BuiltList<Object>);
           break;
         case 'summary':
           result.summary = serializers.deserialize(value,
@@ -113,7 +114,7 @@ class _$Movie extends Movie {
   @override
   final int runtime;
   @override
-  final List<String> genres;
+  final BuiltList<String> genres;
   @override
   final String summary;
   @override
@@ -241,9 +242,10 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
   int get runtime => _$this._runtime;
   set runtime(int runtime) => _$this._runtime = runtime;
 
-  List<String> _genres;
-  List<String> get genres => _$this._genres;
-  set genres(List<String> genres) => _$this._genres = genres;
+  ListBuilder<String> _genres;
+  ListBuilder<String> get genres =>
+      _$this._genres ??= new ListBuilder<String>();
+  set genres(ListBuilder<String> genres) => _$this._genres = genres;
 
   String _summary;
   String get summary => _$this._summary;
@@ -272,7 +274,7 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
       _year = _$v.year;
       _rating = _$v.rating;
       _runtime = _$v.runtime;
-      _genres = _$v.genres;
+      _genres = _$v.genres?.toBuilder();
       _summary = _$v.summary;
       _backgroundImage = _$v.backgroundImage;
       _mediumCoverImage = _$v.mediumCoverImage;
@@ -297,17 +299,30 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
 
   @override
   _$Movie build() {
-    final _$result = _$v ??
-        new _$Movie._(
-            title: title,
-            year: year,
-            rating: rating,
-            runtime: runtime,
-            genres: genres,
-            summary: summary,
-            backgroundImage: backgroundImage,
-            mediumCoverImage: mediumCoverImage,
-            largeCoverImage: largeCoverImage);
+    _$Movie _$result;
+    try {
+      _$result = _$v ??
+          new _$Movie._(
+              title: title,
+              year: year,
+              rating: rating,
+              runtime: runtime,
+              genres: genres.build(),
+              summary: summary,
+              backgroundImage: backgroundImage,
+              mediumCoverImage: mediumCoverImage,
+              largeCoverImage: largeCoverImage);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'genres';
+        genres.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Movie', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

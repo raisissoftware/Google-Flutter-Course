@@ -1,6 +1,7 @@
 library movie;
 
-import 'package:COURSES/src/05/models/serializers.dart';
+import 'package:COURSES/src/05/src/models/serializers.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -24,7 +25,7 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
 
   int get runtime;
 
-  List<String> get genres;
+  BuiltList<String> get genres;
 
   String get summary;
 
