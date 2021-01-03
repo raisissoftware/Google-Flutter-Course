@@ -34,18 +34,18 @@ mixin _$SetSelectedMovie {
 
 /// @nodoc
 abstract class $SetSelectedMovieCopyWith<$Res> {
-  factory $SetSelectedMovieCopyWith(
-          SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
+  factory $SetSelectedMovieCopyWith(SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
       _$SetSelectedMovieCopyWithImpl<$Res>;
+
   $Res call({int movieId});
 }
 
 /// @nodoc
-class _$SetSelectedMovieCopyWithImpl<$Res>
-    implements $SetSelectedMovieCopyWith<$Res> {
+class _$SetSelectedMovieCopyWithImpl<$Res> implements $SetSelectedMovieCopyWith<$Res> {
   _$SetSelectedMovieCopyWithImpl(this._value, this._then);
 
   final SetSelectedMovie _value;
+
   // ignore: unused_field
   final $Res Function(SetSelectedMovie) _then;
 
@@ -60,21 +60,18 @@ class _$SetSelectedMovieCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SetSelectedMovieCopyWith<$Res>
-    implements $SetSelectedMovieCopyWith<$Res> {
-  factory _$SetSelectedMovieCopyWith(
-          _SetSelectedMovie value, $Res Function(_SetSelectedMovie) then) =
+abstract class _$SetSelectedMovieCopyWith<$Res> implements $SetSelectedMovieCopyWith<$Res> {
+  factory _$SetSelectedMovieCopyWith(_SetSelectedMovie value, $Res Function(_SetSelectedMovie) then) =
       __$SetSelectedMovieCopyWithImpl<$Res>;
+
   @override
   $Res call({int movieId});
 }
 
 /// @nodoc
-class __$SetSelectedMovieCopyWithImpl<$Res>
-    extends _$SetSelectedMovieCopyWithImpl<$Res>
+class __$SetSelectedMovieCopyWithImpl<$Res> extends _$SetSelectedMovieCopyWithImpl<$Res>
     implements _$SetSelectedMovieCopyWith<$Res> {
-  __$SetSelectedMovieCopyWithImpl(
-      _SetSelectedMovie _value, $Res Function(_SetSelectedMovie) _then)
+  __$SetSelectedMovieCopyWithImpl(_SetSelectedMovie _value, $Res Function(_SetSelectedMovie) _then)
       : super(_value, (v) => _then(v as _SetSelectedMovie));
 
   @override
@@ -106,13 +103,11 @@ class _$_SetSelectedMovie implements _SetSelectedMovie {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SetSelectedMovie &&
-            (identical(other.movieId, movieId) ||
-                const DeepCollectionEquality().equals(other.movieId, movieId)));
+            (identical(other.movieId, movieId) || const DeepCollectionEquality().equals(other.movieId, movieId)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
 
   @override
   _$SetSelectedMovieCopyWith<_SetSelectedMovie> get copyWith =>
@@ -124,6 +119,7 @@ abstract class _SetSelectedMovie implements SetSelectedMovie {
 
   @override
   int get movieId;
+
   @override
   _$SetSelectedMovieCopyWith<_SetSelectedMovie> get copyWith;
 }

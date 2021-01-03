@@ -43,7 +43,6 @@ class HomePage extends StatelessWidget {
                             StoreProvider.of<AppState>(context) //
                               ..dispatch(const UpdateOrderBy('desc'))
                               ..dispatch(const GetMovies());
-
                         },
                       );
                     },
@@ -137,17 +136,14 @@ class HomePage extends StatelessWidget {
                                     ),
                                     itemCount: movies.length,
                                     itemBuilder: (BuildContext context, int index) {
-
                                       final Movie movie = movies[index];
 
                                       return InkWell(
                                         onTap: () {
-                                          StoreProvider.of<AppState>(context)
-                                              .dispatch(SetSelectedMovie(movie.id));
+                                          StoreProvider.of<AppState>(context).dispatch(SetSelectedMovie(movie.id));
                                           Navigator.pushNamed(context, '/movieDetail');
                                         },
                                         child: GridTile(
-
                                           child: Image.network(movie.mediumCoverImage),
                                           footer: GridTileBar(
                                             title: Text(movie.title),

@@ -15,7 +15,6 @@ class MovieDetail extends StatelessWidget {
         ),
         body: Image.network(movie.largeCoverImage),
       );
-
     });
   }
 }

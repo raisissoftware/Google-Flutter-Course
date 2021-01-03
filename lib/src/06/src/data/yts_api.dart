@@ -14,24 +14,17 @@ class YtsApi {
   Future<List<Movie>> getMovies(int nextPage, String quality, String genre, String orderBy) async {
     // final String url = 'https://yts.mx/api/v2/list_movies.json?limit=50&page=$nextPage&quality=$quality';
 
-    final Uri url = Uri(
-      scheme: 'https',
-      host: 'yts.mx',
-      pathSegments: <String>[
-        'api',
-        'v2',
-        'list_movies.json'
-      ],
-      queryParameters: <String, String>{
-        'limit': '3',
-        'page': '$nextPage',
-        if(quality != null) 'quality': quality,
-        if(genre != null) 'genre': genre,
-        'order_by': '$orderBy'
-
-      }
-
-    );
+    final Uri url = Uri(scheme: 'https', host: 'yts.mx', pathSegments: <String>[
+      'api',
+      'v2',
+      'list_movies.json'
+    ], queryParameters: <String, String>{
+      'limit': '3',
+      'page': '$nextPage',
+      if (quality != null) 'quality': quality,
+      if (genre != null) 'genre': genre,
+      'order_by': '$orderBy'
+    });
 
     final Response response = await _client.get(url);
     final String body = response.body;
