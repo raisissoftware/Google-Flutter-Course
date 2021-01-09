@@ -2,7 +2,7 @@ import 'package:COURSES/src/07/src/actions/index.dart';
 import 'package:COURSES/src/07/src/models/index.dart';
 import 'package:redux/redux.dart';
 
-Reducer<AppState> reducer = combineReducers([
+Reducer<AppState> reducer = combineReducers(<Reducer<AppState>>[
   TypedReducer<AppState, GetMoviesStart>(_getMoviesStart),
   TypedReducer<AppState, GetMoviesSuccessful>(_getMoviesSuccessful),
   TypedReducer<AppState, GetMoviesError>(_getMoviesError),
