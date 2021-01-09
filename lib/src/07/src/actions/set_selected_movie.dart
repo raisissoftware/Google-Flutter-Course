@@ -1,5 +1,3 @@
-
-
 part of actions;
 
 @freezed

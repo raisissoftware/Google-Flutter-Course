@@ -45,6 +45,7 @@ mixin _$GetMovies {
     @required Result successful(List<Movie> movies),
     @required Result error(dynamic error),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(), {
@@ -52,12 +53,14 @@ mixin _$GetMovies {
     Result error(dynamic error),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>(
     Result $default(GetMoviesStart value), {
     @required Result successful(GetMoviesSuccessful value),
     @required Result error(GetMoviesError value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
     Result $default(GetMoviesStart value), {
@@ -69,8 +72,7 @@ mixin _$GetMovies {
 
 /// @nodoc
 abstract class $GetMoviesCopyWith<$Res> {
-  factory $GetMoviesCopyWith(GetMovies value, $Res Function(GetMovies) then) =
-      _$GetMoviesCopyWithImpl<$Res>;
+  factory $GetMoviesCopyWith(GetMovies value, $Res Function(GetMovies) then) = _$GetMoviesCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -78,22 +80,21 @@ class _$GetMoviesCopyWithImpl<$Res> implements $GetMoviesCopyWith<$Res> {
   _$GetMoviesCopyWithImpl(this._value, this._then);
 
   final GetMovies _value;
+
   // ignore: unused_field
   final $Res Function(GetMovies) _then;
 }
 
 /// @nodoc
 abstract class $GetMoviesStartCopyWith<$Res> {
-  factory $GetMoviesStartCopyWith(
-          GetMoviesStart value, $Res Function(GetMoviesStart) then) =
+  factory $GetMoviesStartCopyWith(GetMoviesStart value, $Res Function(GetMoviesStart) then) =
       _$GetMoviesStartCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class _$GetMoviesStartCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res>
     implements $GetMoviesStartCopyWith<$Res> {
-  _$GetMoviesStartCopyWithImpl(
-      GetMoviesStart _value, $Res Function(GetMoviesStart) _then)
+  _$GetMoviesStartCopyWithImpl(GetMoviesStart _value, $Res Function(GetMoviesStart) _then)
       : super(_value, (v) => _then(v as GetMoviesStart));
 
   @override
@@ -180,18 +181,16 @@ abstract class GetMoviesStart implements GetMovies {
 
 /// @nodoc
 abstract class $GetMoviesSuccessfulCopyWith<$Res> {
-  factory $GetMoviesSuccessfulCopyWith(
-          GetMoviesSuccessful value, $Res Function(GetMoviesSuccessful) then) =
+  factory $GetMoviesSuccessfulCopyWith(GetMoviesSuccessful value, $Res Function(GetMoviesSuccessful) then) =
       _$GetMoviesSuccessfulCopyWithImpl<$Res>;
+
   $Res call({List<Movie> movies});
 }
 
 /// @nodoc
-class _$GetMoviesSuccessfulCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res>
+class _$GetMoviesSuccessfulCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res>
     implements $GetMoviesSuccessfulCopyWith<$Res> {
-  _$GetMoviesSuccessfulCopyWithImpl(
-      GetMoviesSuccessful _value, $Res Function(GetMoviesSuccessful) _then)
+  _$GetMoviesSuccessfulCopyWithImpl(GetMoviesSuccessful _value, $Res Function(GetMoviesSuccessful) _then)
       : super(_value, (v) => _then(v as GetMoviesSuccessful));
 
   @override
@@ -223,13 +222,11 @@ class _$GetMoviesSuccessful implements GetMoviesSuccessful {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GetMoviesSuccessful &&
-            (identical(other.movies, movies) ||
-                const DeepCollectionEquality().equals(other.movies, movies)));
+            (identical(other.movies, movies) || const DeepCollectionEquality().equals(other.movies, movies)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movies);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(movies);
 
   @override
   $GetMoviesSuccessfulCopyWith<GetMoviesSuccessful> get copyWith =>
@@ -296,22 +293,22 @@ abstract class GetMoviesSuccessful implements GetMovies {
   const factory GetMoviesSuccessful(List<Movie> movies) = _$GetMoviesSuccessful;
 
   List<Movie> get movies;
+
   $GetMoviesSuccessfulCopyWith<GetMoviesSuccessful> get copyWith;
 }
 
 /// @nodoc
 abstract class $GetMoviesErrorCopyWith<$Res> {
-  factory $GetMoviesErrorCopyWith(
-          GetMoviesError value, $Res Function(GetMoviesError) then) =
+  factory $GetMoviesErrorCopyWith(GetMoviesError value, $Res Function(GetMoviesError) then) =
       _$GetMoviesErrorCopyWithImpl<$Res>;
+
   $Res call({dynamic error});
 }
 
 /// @nodoc
 class _$GetMoviesErrorCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res>
     implements $GetMoviesErrorCopyWith<$Res> {
-  _$GetMoviesErrorCopyWithImpl(
-      GetMoviesError _value, $Res Function(GetMoviesError) _then)
+  _$GetMoviesErrorCopyWithImpl(GetMoviesError _value, $Res Function(GetMoviesError) _then)
       : super(_value, (v) => _then(v as GetMoviesError));
 
   @override
@@ -343,13 +340,11 @@ class _$GetMoviesError implements GetMoviesError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GetMoviesError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+            (identical(other.error, error) || const DeepCollectionEquality().equals(other.error, error)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
   @override
   $GetMoviesErrorCopyWith<GetMoviesError> get copyWith =>
@@ -416,6 +411,7 @@ abstract class GetMoviesError implements GetMovies {
   const factory GetMoviesError(dynamic error) = _$GetMoviesError;
 
   dynamic get error;
+
   $GetMoviesErrorCopyWith<GetMoviesError> get copyWith;
 }
 
@@ -444,18 +440,18 @@ mixin _$SetSelectedMovie {
 
 /// @nodoc
 abstract class $SetSelectedMovieCopyWith<$Res> {
-  factory $SetSelectedMovieCopyWith(
-          SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
+  factory $SetSelectedMovieCopyWith(SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
       _$SetSelectedMovieCopyWithImpl<$Res>;
+
   $Res call({int movieId});
 }
 
 /// @nodoc
-class _$SetSelectedMovieCopyWithImpl<$Res>
-    implements $SetSelectedMovieCopyWith<$Res> {
+class _$SetSelectedMovieCopyWithImpl<$Res> implements $SetSelectedMovieCopyWith<$Res> {
   _$SetSelectedMovieCopyWithImpl(this._value, this._then);
 
   final SetSelectedMovie _value;
+
   // ignore: unused_field
   final $Res Function(SetSelectedMovie) _then;
 
@@ -470,21 +466,18 @@ class _$SetSelectedMovieCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SetSelectedMovieCopyWith<$Res>
-    implements $SetSelectedMovieCopyWith<$Res> {
-  factory _$SetSelectedMovieCopyWith(
-          _SetSelectedMovie value, $Res Function(_SetSelectedMovie) then) =
+abstract class _$SetSelectedMovieCopyWith<$Res> implements $SetSelectedMovieCopyWith<$Res> {
+  factory _$SetSelectedMovieCopyWith(_SetSelectedMovie value, $Res Function(_SetSelectedMovie) then) =
       __$SetSelectedMovieCopyWithImpl<$Res>;
+
   @override
   $Res call({int movieId});
 }
 
 /// @nodoc
-class __$SetSelectedMovieCopyWithImpl<$Res>
-    extends _$SetSelectedMovieCopyWithImpl<$Res>
+class __$SetSelectedMovieCopyWithImpl<$Res> extends _$SetSelectedMovieCopyWithImpl<$Res>
     implements _$SetSelectedMovieCopyWith<$Res> {
-  __$SetSelectedMovieCopyWithImpl(
-      _SetSelectedMovie _value, $Res Function(_SetSelectedMovie) _then)
+  __$SetSelectedMovieCopyWithImpl(_SetSelectedMovie _value, $Res Function(_SetSelectedMovie) _then)
       : super(_value, (v) => _then(v as _SetSelectedMovie));
 
   @override
@@ -516,13 +509,11 @@ class _$_SetSelectedMovie implements _SetSelectedMovie {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SetSelectedMovie &&
-            (identical(other.movieId, movieId) ||
-                const DeepCollectionEquality().equals(other.movieId, movieId)));
+            (identical(other.movieId, movieId) || const DeepCollectionEquality().equals(other.movieId, movieId)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
 
   @override
   _$SetSelectedMovieCopyWith<_SetSelectedMovie> get copyWith =>
@@ -534,6 +525,7 @@ abstract class _SetSelectedMovie implements SetSelectedMovie {
 
   @override
   int get movieId;
+
   @override
   _$SetSelectedMovieCopyWith<_SetSelectedMovie> get copyWith;
 }
@@ -563,9 +555,8 @@ mixin _$UpdateGenre {
 
 /// @nodoc
 abstract class $UpdateGenreCopyWith<$Res> {
-  factory $UpdateGenreCopyWith(
-          UpdateGenre value, $Res Function(UpdateGenre) then) =
-      _$UpdateGenreCopyWithImpl<$Res>;
+  factory $UpdateGenreCopyWith(UpdateGenre value, $Res Function(UpdateGenre) then) = _$UpdateGenreCopyWithImpl<$Res>;
+
   $Res call({String genre});
 }
 
@@ -574,6 +565,7 @@ class _$UpdateGenreCopyWithImpl<$Res> implements $UpdateGenreCopyWith<$Res> {
   _$UpdateGenreCopyWithImpl(this._value, this._then);
 
   final UpdateGenre _value;
+
   // ignore: unused_field
   final $Res Function(UpdateGenre) _then;
 
@@ -588,20 +580,17 @@ class _$UpdateGenreCopyWithImpl<$Res> implements $UpdateGenreCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UpdateGenreCopyWith<$Res>
-    implements $UpdateGenreCopyWith<$Res> {
-  factory _$UpdateGenreCopyWith(
-          _UpdateGenre value, $Res Function(_UpdateGenre) then) =
+abstract class _$UpdateGenreCopyWith<$Res> implements $UpdateGenreCopyWith<$Res> {
+  factory _$UpdateGenreCopyWith(_UpdateGenre value, $Res Function(_UpdateGenre) then) =
       __$UpdateGenreCopyWithImpl<$Res>;
+
   @override
   $Res call({String genre});
 }
 
 /// @nodoc
-class __$UpdateGenreCopyWithImpl<$Res> extends _$UpdateGenreCopyWithImpl<$Res>
-    implements _$UpdateGenreCopyWith<$Res> {
-  __$UpdateGenreCopyWithImpl(
-      _UpdateGenre _value, $Res Function(_UpdateGenre) _then)
+class __$UpdateGenreCopyWithImpl<$Res> extends _$UpdateGenreCopyWithImpl<$Res> implements _$UpdateGenreCopyWith<$Res> {
+  __$UpdateGenreCopyWithImpl(_UpdateGenre _value, $Res Function(_UpdateGenre) _then)
       : super(_value, (v) => _then(v as _UpdateGenre));
 
   @override
@@ -633,17 +622,14 @@ class _$_UpdateGenre implements _UpdateGenre {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateGenre &&
-            (identical(other.genre, genre) ||
-                const DeepCollectionEquality().equals(other.genre, genre)));
+            (identical(other.genre, genre) || const DeepCollectionEquality().equals(other.genre, genre)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(genre);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(genre);
 
   @override
-  _$UpdateGenreCopyWith<_UpdateGenre> get copyWith =>
-      __$UpdateGenreCopyWithImpl<_UpdateGenre>(this, _$identity);
+  _$UpdateGenreCopyWith<_UpdateGenre> get copyWith => __$UpdateGenreCopyWithImpl<_UpdateGenre>(this, _$identity);
 }
 
 abstract class _UpdateGenre implements UpdateGenre {
@@ -651,6 +637,7 @@ abstract class _UpdateGenre implements UpdateGenre {
 
   @override
   String get genre;
+
   @override
   _$UpdateGenreCopyWith<_UpdateGenre> get copyWith;
 }
@@ -680,18 +667,18 @@ mixin _$UpdateOrderBy {
 
 /// @nodoc
 abstract class $UpdateOrderByCopyWith<$Res> {
-  factory $UpdateOrderByCopyWith(
-          UpdateOrderBy value, $Res Function(UpdateOrderBy) then) =
+  factory $UpdateOrderByCopyWith(UpdateOrderBy value, $Res Function(UpdateOrderBy) then) =
       _$UpdateOrderByCopyWithImpl<$Res>;
+
   $Res call({String orderBy});
 }
 
 /// @nodoc
-class _$UpdateOrderByCopyWithImpl<$Res>
-    implements $UpdateOrderByCopyWith<$Res> {
+class _$UpdateOrderByCopyWithImpl<$Res> implements $UpdateOrderByCopyWith<$Res> {
   _$UpdateOrderByCopyWithImpl(this._value, this._then);
 
   final UpdateOrderBy _value;
+
   // ignore: unused_field
   final $Res Function(UpdateOrderBy) _then;
 
@@ -706,21 +693,18 @@ class _$UpdateOrderByCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UpdateOrderByCopyWith<$Res>
-    implements $UpdateOrderByCopyWith<$Res> {
-  factory _$UpdateOrderByCopyWith(
-          _UpdateOrderBy value, $Res Function(_UpdateOrderBy) then) =
+abstract class _$UpdateOrderByCopyWith<$Res> implements $UpdateOrderByCopyWith<$Res> {
+  factory _$UpdateOrderByCopyWith(_UpdateOrderBy value, $Res Function(_UpdateOrderBy) then) =
       __$UpdateOrderByCopyWithImpl<$Res>;
+
   @override
   $Res call({String orderBy});
 }
 
 /// @nodoc
-class __$UpdateOrderByCopyWithImpl<$Res>
-    extends _$UpdateOrderByCopyWithImpl<$Res>
+class __$UpdateOrderByCopyWithImpl<$Res> extends _$UpdateOrderByCopyWithImpl<$Res>
     implements _$UpdateOrderByCopyWith<$Res> {
-  __$UpdateOrderByCopyWithImpl(
-      _UpdateOrderBy _value, $Res Function(_UpdateOrderBy) _then)
+  __$UpdateOrderByCopyWithImpl(_UpdateOrderBy _value, $Res Function(_UpdateOrderBy) _then)
       : super(_value, (v) => _then(v as _UpdateOrderBy));
 
   @override
@@ -752,13 +736,11 @@ class _$_UpdateOrderBy implements _UpdateOrderBy {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateOrderBy &&
-            (identical(other.orderBy, orderBy) ||
-                const DeepCollectionEquality().equals(other.orderBy, orderBy)));
+            (identical(other.orderBy, orderBy) || const DeepCollectionEquality().equals(other.orderBy, orderBy)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(orderBy);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(orderBy);
 
   @override
   _$UpdateOrderByCopyWith<_UpdateOrderBy> get copyWith =>
@@ -770,6 +752,7 @@ abstract class _UpdateOrderBy implements UpdateOrderBy {
 
   @override
   String get orderBy;
+
   @override
   _$UpdateOrderByCopyWith<_UpdateOrderBy> get copyWith;
 }
@@ -799,18 +782,18 @@ mixin _$UpdateQuality {
 
 /// @nodoc
 abstract class $UpdateQualityCopyWith<$Res> {
-  factory $UpdateQualityCopyWith(
-          UpdateQuality value, $Res Function(UpdateQuality) then) =
+  factory $UpdateQualityCopyWith(UpdateQuality value, $Res Function(UpdateQuality) then) =
       _$UpdateQualityCopyWithImpl<$Res>;
+
   $Res call({String quality});
 }
 
 /// @nodoc
-class _$UpdateQualityCopyWithImpl<$Res>
-    implements $UpdateQualityCopyWith<$Res> {
+class _$UpdateQualityCopyWithImpl<$Res> implements $UpdateQualityCopyWith<$Res> {
   _$UpdateQualityCopyWithImpl(this._value, this._then);
 
   final UpdateQuality _value;
+
   // ignore: unused_field
   final $Res Function(UpdateQuality) _then;
 
@@ -825,21 +808,18 @@ class _$UpdateQualityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UpdateQualityCopyWith<$Res>
-    implements $UpdateQualityCopyWith<$Res> {
-  factory _$UpdateQualityCopyWith(
-          _UpdateQuality value, $Res Function(_UpdateQuality) then) =
+abstract class _$UpdateQualityCopyWith<$Res> implements $UpdateQualityCopyWith<$Res> {
+  factory _$UpdateQualityCopyWith(_UpdateQuality value, $Res Function(_UpdateQuality) then) =
       __$UpdateQualityCopyWithImpl<$Res>;
+
   @override
   $Res call({String quality});
 }
 
 /// @nodoc
-class __$UpdateQualityCopyWithImpl<$Res>
-    extends _$UpdateQualityCopyWithImpl<$Res>
+class __$UpdateQualityCopyWithImpl<$Res> extends _$UpdateQualityCopyWithImpl<$Res>
     implements _$UpdateQualityCopyWith<$Res> {
-  __$UpdateQualityCopyWithImpl(
-      _UpdateQuality _value, $Res Function(_UpdateQuality) _then)
+  __$UpdateQualityCopyWithImpl(_UpdateQuality _value, $Res Function(_UpdateQuality) _then)
       : super(_value, (v) => _then(v as _UpdateQuality));
 
   @override
@@ -871,13 +851,11 @@ class _$_UpdateQuality implements _UpdateQuality {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateQuality &&
-            (identical(other.quality, quality) ||
-                const DeepCollectionEquality().equals(other.quality, quality)));
+            (identical(other.quality, quality) || const DeepCollectionEquality().equals(other.quality, quality)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(quality);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(quality);
 
   @override
   _$UpdateQualityCopyWith<_UpdateQuality> get copyWith =>
@@ -889,6 +867,7 @@ abstract class _UpdateQuality implements UpdateQuality {
 
   @override
   String get quality;
+
   @override
   _$UpdateQualityCopyWith<_UpdateQuality> get copyWith;
 }

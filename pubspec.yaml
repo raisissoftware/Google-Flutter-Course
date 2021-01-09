@@ -17,6 +17,8 @@ dependencies:
   assets_audio_player: ^2.0.13+1
   http: ^0.12.2
   redux: ^4.0.0+3
+  redux_epics: ^0.14.0
+  rxdart: ^0.24.0
   flutter_redux: ^0.7.0
   built_value: ^7.1.0
   built_collection: ^4.3.2
